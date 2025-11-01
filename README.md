@@ -21,18 +21,31 @@ Generate platform queries from seeds
 export QUERY_BACKEND=postgres
 python cli/gen_queries.py
 ```
-
-Score preview results
-
-Prepare two JSON files:
-
-seed.json (single seed)
-
-previews.json (array of raw preview items from a platform API/UI export)
 ```bash
-python cli/score_previews.py youtube seed.json previews.json > scored.json
+OpenIE_Task_1_Data_Collection
+├── .env
+├── .gitattributes
+├── cli
+│   ├── gen_queries.py
+│   └── score_previews.py
+├── README.md
+├── requirements.txt
+└── src
+    └── oie_search
+        ├── config.py
+        ├── db
+        │   ├── mongo_runner.py
+        │   ├── postgres_runner.py
+        │   └── __init__.py
+        ├── digestors.py
+        ├── pipelines
+        │   ├── generate_queries.py
+        │   └── preview_intake.py
+        ├── prompts.py
+        ├── query_generator.py
+        ├── scoring.py
+        └── __init__.py
 ```
-The pipeline normalizes previews, computes scores, and emits keep/consider/reject with signals.
 
 
 
