@@ -16,7 +16,7 @@ chmod +x cli/score_previews.py
 ```
 
 Generate platform queries from seeds
-# select backend via env (postgres or mongo)
+(select backend via env (postgres or mongo))
 ```bash
 export QUERY_BACKEND=postgres
 python cli/gen_queries.py
@@ -29,9 +29,10 @@ Prepare two JSON files:
 seed.json (single seed)
 
 previews.json (array of raw preview items from a platform API/UI export)
+```bash
 python cli/score_previews.py youtube seed.json previews.json > scored.json
-
-he pipeline normalizes previews, computes scores, and emits keep/consider/reject with signals.
+```
+The pipeline normalizes previews, computes scores, and emits keep/consider/reject with signals.
 
 
 
