@@ -1,0 +1,7 @@
+psycopg2-binary==2.9.9
+pymongo==4.8.0
+python-dotenv==1.0.1
+pydantic==2.9.2
+numpy==2.1.2
+scikit-learn==1.5.2
+requests==2.32.3
