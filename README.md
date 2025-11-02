@@ -25,17 +25,25 @@ python cli/gen_queries.py
 OpenIE_Task_1_Data_Collection
 ├── .env
 ├── .gitattributes
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── dev_init.ps1
+├── docker-compose.yml
+├── OpenIE_Task_1_Data_Collection.ini
 ├── cli
 │   ├── gen_queries.py
 │   └── score_previews.py
-├── README.md
-├── requirements.txt
 └── src
     └── oie_search
         ├── config.py
         ├── db
+        │   ├── mongo_init.js
         │   ├── mongo_runner.py
         │   ├── postgres_runner.py
+        │   ├── schema_postgres.sql
+        │   ├── seed_mongo.js
+        │   ├── seed_postgres.sql
         │   └── __init__.py
         ├── digestors.py
         ├── pipelines

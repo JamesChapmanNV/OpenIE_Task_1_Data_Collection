@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16
+    container_name: openie-pg
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: openie
+    ports:
+      - "5432:5432"
+    volumes:
+      - openie_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    container_name: openie-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - openie_mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  openie_pgdata:
+  openie_mongo_data:
