@@ -108,3 +108,5 @@ def generate_queries_for_platform(seed: Dict, platform: str, config: Dict=None) 
         precise = (f'from:{author} ' + precise).strip()
 
     return {"precise": precise, "broad": broad, "hashtag_phrase": hashtag_phrase}
+
+

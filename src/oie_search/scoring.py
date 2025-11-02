@@ -3,6 +3,28 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from numpy import dot
 from numpy.linalg import norm
 
+from .config import get_score_float, get_score_int
+
+W_OVER_TITLE   = get_score_float("WEIGHT_OVERLAP_TITLE", 0.30)
+W_OVER_DESC    = get_score_float("WEIGHT_OVERLAP_DESC", 0.20)
+W_DOMAIN       = get_score_float("WEIGHT_DOMAIN_TERMS", 0.15)
+W_NOVEL        = get_score_float("WEIGHT_NOVEL_TERMS", 0.10)
+W_RECENCY      = get_score_float("WEIGHT_RECENCY", 0.10)
+W_CRED         = get_score_float("WEIGHT_CREDIBILITY", 0.10)
+W_ENG          = get_score_float("WEIGHT_ENGAGEMENT", 0.05)
+
+KEEP_MIN       = get_score_float("KEEP_MIN_SCORE", 0.55)
+TOPK_PER_SEED  = get_score_int("TOPK_PER_SEED", 50)
+HALF_LIFE_DAYS = get_score_int("RECENCY_HALF_LIFE_DAYS", 30)
+MAX_VIEWS      = get_score_int("MAX_VIEWS", 1_000_000)
+MAX_LIKES      = get_score_int("MAX_LIKES", 50_000)
+MAX_COMMENTS   = get_score_int("MAX_COMMENTS", 5_000)
+
+# ... inside score_preview(features):
+# s = (W_OVER_TITLE*f['overlap_title'] + W_OVER_DESC*f['overlap_desc'] + ...)
+# return float(min(max(s, 0.0), 1.0))
+
+
 def _quick_text_cosine(a: str, b: str) -> float:
     a = a or ""
     b = b or ""
